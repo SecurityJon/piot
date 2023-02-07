@@ -1,0 +1,28 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+      <h1>Raw Network Traffic</h1>
+      <p>
+      This is the raw network traffic the IOT device has been sending and recieving below, minus any obvious comms with our device
+      </p>
+      <p>
+      <a href="{{ url_for('downloadPCAP') }}">Download Raw PCAP file</a>
+      </p>
+      <p>
+      <table id="datatable" class="table table-striped">
+      <thead>
+         <tr>
+            <th>Raw Network Traffic</th>
+         </tr>
+      </thead>
+      <tbody class="data">
+      {% for item in data %}
+          <tr>
+              <td>{{ item }} </td>
+           </tr>
+      {% endfor %}
+      </tbody>
+      </table>
+
+     </p>
+{% endblock %}

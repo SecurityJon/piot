@@ -1,0 +1,34 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+      <h1>Network Conversations</h1>
+      <p>
+      These are the network conversations between the device and it's endpoints
+      </p>
+      <p>
+      <table id="datatable" class="table table-striped">
+      <thead>
+         <tr>
+            <th>IOT Endpoint</th>
+             <th>Protocol</th>
+             <th>Cloud Endpoint</th>
+             <th>Port</th>
+             <th>DNS Name</th>
+         </tr>
+      </thead>
+      <tbody class="data">
+      {% for protocol in data %}
+        {% for convo in protocol %}
+          <tr>
+              {% for part in convo %}
+                <td>{{ part }} </td>
+              {% endfor %}
+           </tr>
+        {% endfor %}
+      {% endfor %}
+      </tbody>
+      </table>
+     </p>
+    <script src="/static/js/jons.js"></script>
+    <script>renderIOTConversations();</script>
+{% endblock %}

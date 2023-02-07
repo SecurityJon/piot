@@ -1,0 +1,24 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}     
+    <div class="container">
+       <script src="/static/js/jons.js"></script>
+       <h2>Welcome to pIOT</h2>
+       <p>
+       pIOT is a Penetration Testing toolkit specifically for IOT device, rather than their mobile application controllers. It allows you to quickly see what a IOT device is doing without having to open it, or set up anything. 
+       </p>
+       <p>Please connect an IOT device to the  following network and wait for it to appear below:</p>
+       <p>
+       SSID: {{ ssid }}
+       <br>
+       Password: {{ psk }}
+       </p>
+       <p>
+       <div class="spinner-border text-primary" role="status" id="spinnernotyetloaded"></div>
+       <div id="header" class="d-none"><h3>Discovered IOT Devices:</h3></div>
+       <div class="iotdevices"></div>       
+       <!-- <script>renderIOTIPs();</script> -->
+        <script>renderIOTFullDetails();</script>
+
+       <p>
+{% endblock %}

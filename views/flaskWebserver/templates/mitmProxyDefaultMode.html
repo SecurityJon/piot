@@ -1,0 +1,37 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+      <h1>Basic Man in The Middle Attack</h1>
+      <p>
+      Many IOT devices will utilise encrypted communication between the device and the internet endpoint they communicate with. Often the IOT device will not correctly validate the internet endpoint and the encrypted communication can be broken using a Man-In-The-Middle attack.
+      </p>
+      <p>
+      This attack uses the MiTMProxy tool in it's default configuration, which presents a self-signed TLS certificate with the subject of the domain that IOT device is attempting to access. If the IOT device is not correctly validating certificates then it is possible to intercept communication.
+      </p>
+    <p>
+        Please click 'start attack' below and then try to use the IOT device. Any communication that can intercepted either through a MiTM attack or due to plain text communication will be shown below.
+      </p>
+      <p>
+      Note: This will most likely break all functionality in the IOT device while the attack is running
+      </p>
+      <p>      
+      {% if ismitmproxycurrentlyrunning == True: %}
+          <a id="startMITMProxy" class="btn btn-success" role="button">Attack Running</a>
+      {% else: %}  
+          <a id="startMITMProxy" onClick="startMITMProxyDefaultMode()" class="btn btn-primary" role="button">Start Attack</a>      
+      {% endif %}              
+        <a onClick="stopMITMProxyDefaultMode()" class="btn btn-danger" role="button">Stop Attack</a>
+      </p>
+      <p>
+      <div class="mitmProxyInformUser"></div>
+      </p>      
+      <table class="d-none" id="mitmdtable">
+      <thead>
+         <tr>
+            <th>URIs that have been successfully Man In The Middled</th>
+         </tr>
+      </thead>
+      <tbody class="data"></tbody>
+      </table>          
+      <script src="/static/js/jons.js"></script>    
+{% endblock %}

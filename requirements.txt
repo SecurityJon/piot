@@ -1,0 +1,17 @@
+sudo apt-get install hostapd dhcpd isc-dhcp-server python3 python3-pip tshark iptables nmap openssl
+pip3 install psutil
+
+sudo pip install --upgrade pip
+
+sudo pip install cryptography -i https://www.piwheels.org/simple
+
+sudo apt-get install rustc
+
+pip3 install mitmproxy
+
+##Probably Ubuntu Specific install issues
+#sudo apt-get install snapd
+#sudo snap install core; sudo snap refresh core
+#sudo snap install --classic certbot
+#sudo snap set certbot trust-plugin-with-root=ok
+#sudo snap install certbot-dns-route53

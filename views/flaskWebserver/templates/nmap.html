@@ -1,0 +1,29 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+      <h1>NMAP Scanning Results</h1>
+      <p>
+      The NMAP network scanner was ran against the IOT device when it connected. This can take a while to run, please be patient
+      </p>
+      <p>
+      The NMAP scanner is <a id="nmapStatus" class="btn btn-primary" role="button">Not Started</a>      
+      </p>      
+      <p>
+      Any discovered network ports on the device will be shown below
+      </p>
+      <table width="600" class="table table-striped">
+      <thead>
+         <tr>
+            <th>Port</th>
+            <th>State</th>
+            <th>Service</th>
+            <th>Service Name</th>
+         </tr>
+      </thead>
+      <tbody class="data">
+      </tbody>
+      </table>
+     <script src="/static/js/jons.js"></script>      
+    <script>checkNMAP();</script>
+    <script>renderNMAP();</script>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+      <h1>Cipher Suites Used</h1>
+      <p>
+      There are the cipher suites offered from the IOT device when it communicates with the cloud
+      </p>
+      <p>
+      <table id="datatable" class="table table-striped">
+      <thead>
+         <tr>
+            <th>IOT Endpoint</th>
+             <th>Cloud Endpoint</th>
+             <th>DNS Name</th>
+             <th>Port</th>
+             <th>Ciphers Offered to Cloud</th>
+         </tr>
+      </thead>
+      <tbody class="data">
+      {% for convo in data %}
+          <tr>
+              <td>{{convo[0]}} </td>
+              <td>{{convo[1]}} </td>
+              <td>{{convo[2]}} </td>
+              <td>{{convo[3]}} </td>
+              <td>
+              {% for part in convo[4] %}
+                {{ part }}
+                  <br>
+              {% endfor %}
+              </td>
+           </tr>
+      {% endfor %}
+      </tbody>
+      </table>
+     </p>
+    <script src="/static/js/jons.js"></script>
+    <script>renderCipherSuitesOffered();</script>
+{% endblock %}

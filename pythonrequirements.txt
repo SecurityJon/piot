@@ -1,0 +1,7 @@
+keyboard
+rich
+flask
+certbot-dns-route53
+psutil
+numpy
+mac-vendor-lookup

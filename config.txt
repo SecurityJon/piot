@@ -1,0 +1,46 @@
+#############################################################################
+#  This module contains config items
+#############################################################################
+
+#DO NOT CHANGE THIS TO TRUE
+standalonetestmode = False
+
+#DEFINE DEBUG SETTINGS
+#DEFAULT IS INFO
+MAINLOGGINGLEVEL = "DEBUG"
+#Default is ERROR
+FLASKLOGGINGLEVEL = "ERROR"
+
+#Define console output colours
+richConsoleBannerStyle = "bold white on black"
+richConsoleStyle = "bold green on black"
+
+#Define the temp directory we'll put everything into
+tempDirectory = "/tmp/"
+
+#Define which components should be enabled for output
+consoleApp = False
+webApp = True
+webAppPort = 5000
+
+###################################################
+# TO DO
+# Make sure the SSID and Password if adjusted are long/short enough
+##################################################
+wirelessAccessPointNameForManagement = "piotmgnt"
+wirelessAccessPointSSIDForManagement = "PIOT_For_Management"
+wirelessAccessPointPasswordForManagement = "piotformanagement"
+wirelessAccessPointSSIDForIOT = "PIOT_For_IOT"
+wirelessAccessPointPasswordForIOT = "piotfortesting"
+
+wirelessAccessPointIPForIOT = "192.168.0.1"
+wirelessAccessPointIPForManagement = "192.168.1.1"
+
+#URL to get CA Public Certificates
+mozillaCertsURL = "https://ccadb-public.secure.force.com/mozilla/IncludedRootsPEMTxt?TrustBitsInclude=Websites"
+
+#Creating Certificates with LetsEncrypt and Route53
+AWS_Access_key_ID = ""
+AWS_Secret_access_key = ""
+letscrypt_email_address = ""
+route53_owned_domain = ""

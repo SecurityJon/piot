@@ -1,0 +1,24 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}  
+      <h1>mDNS Queries Made</h1>
+      <p>
+      Any mDNS advertisements the IOT device has made will appear below
+      </p>
+      <table width="600" class="table table-striped">
+      <thead>
+         <tr>
+            <th>Name</th>
+         </tr>
+      </thead>
+      <tbody class="data">
+      {% for item in data %}
+          <tr>
+              <td>{{ item }}</td>
+           </tr>
+      {% endfor %}
+      </tbody>
+      </table>  
+    <script src="/static/js/jons.js"></script>
+    <script>renderIOTmDNSNames();</script>
+{% endblock %}

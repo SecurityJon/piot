@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+      <h1>Expert Man in the Middle attack</h1>
+      <p>
+      Many IOT devices will utilise encrypted communication between the device and the internet endpoint they communicate with. Often the IOT device will not correctly validate the internet endpoint and the encrypted communication can be broken using a Man-In-The-Middle attack.
+      </p>
+      <p>
+      This attack takes each of the domains that the IOT device has previously tried to access, and uses the LetsEncrypt certificate authority to create legitimate TLS certificates. These certificates are authentically signed and have a subject of [domain_accessed.subdomain_you_own]..Some IOT devices correctly validate that the certificate chain has been signed by a recognised authority, but use an incorrectly configured Regex parser which does not check if the subject of the certificate identically matches the domain requested.
+      </p>
+      <p>
+      Note: Certificates will only be generated for domains that the device has already attempted, new DNS look ups while the tool is running will use the default TLS certificates that the MiTMProxy tool produces, so ensure the IOT device has been utilised sufficently before starting this attack.
+    <p>
+        Please click 'start attack' below and then try to use the IOT device. Any communication that can intercepted either through a MiTM attack or due to plain text communication will be shown below.
+      </p>
+      <p>
+      Note: This will most likely break all functionality in the IOT device while the attack is running
+      </p>
+      <p>
+      {% if ismitmproxycurrentlyrunning == True: %}
+          <a id="startMITMProxy" class="btn btn-success" role="button">Attack Running</a>
+      {% else: %}  
+          <a id="startMITMProxy" onClick="startMITMProxyLetsEncryptCloneMode()" class="btn btn-primary" role="button">Start Attack</a>
+      {% endif %}
+        <a onClick="stopMITMProxyCloneMode()" class="btn btn-danger" role="button">Stop Attack</a>
+      </p>
+      <p>
+      <div class="mitmProxyInformUser"></div>
+      </p>
+      <table class="d-none" id="mitmdtable">
+      <thead>
+         <tr>
+            <th>URIs that have been successfully Man In The Middled</th>
+         </tr>
+      </thead>
+      <tbody class="data"></tbody>
+      </table>          
+      <script src="/static/js/jons.js"></script>    
+{% endblock %}
